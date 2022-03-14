@@ -1,0 +1,67 @@
+#include "DHT.h"
+#define dht_type DHT11
+
+
+int dht_pin = A2;
+DHT dht_1 = DHT(dht_pin, dht_type);
+
+
+int lm35_pin = A0, leitura_lm35 = 0;
+float temperatura;
+
+int ldr_pin = A5, leitura_ldr = 0;
+
+int switch_pin = 3; //Define a entrada do tipo digital para o TCRT5000
+
+void setup()
+{
+Serial.begin(9600); //Velocidade de conexão serial (baud rate)
+dht_1.begin(); //iniciando o sensor DHT11
+pinMode(switch_pin, INPUT);//defino recebimento de informação no pino 3
+}
+
+void loop()
+{
+/**
+* Bloco do DHT11
+*/
+float umidade = dht_1.readHumidity();
+float temperatura = dht_1.readTemperature();
+
+if (isnan(temperatura) or isnan(umidade))
+{
+Serial.println("Erro ao ler o DHT");
+}
+else
+{
+Serial.print(umidade);
+Serial.print(";");
+Serial.print(temperatura);
+Serial.print(";");
+}
+/**
+* Bloco do LM35
+*/
+leitura_lm35 = analogRead(lm35_pin);//varia de 0 a 1023
+temperatura = leitura_lm35 * (5.0/1023) * 100;//transforma de 0 a 1023 em ºC
+Serial.print(temperatura);
+Serial.print(";");
+/**
+* Bloco do LDR5
+*/
+
+leitura_ldr = analogRead(ldr_pin);
+Serial.print(leitura_ldr);
+Serial.print(";");
+/**
+* Bloco do TCRT5000
+*/
+if(digitalRead(switch_pin) == LOW){
+Serial.println(1);
+}
+else {
+Serial.println(0);
+}
+
+delay(4000);//ms
+}
