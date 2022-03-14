@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="123.css" media="screen" />
+   <title>123</title>
+</head>
+<header>
+   <img src="file:///C:/Users/Francisco/Desktop/SPTECH/P&I/logo1.jpg" style="height: 7%;width: 15%;margin-left: 42%;">
+   </img>
+
+</header>
+
+<body style="background-color: rgb(110, 148, 137);overflow-y: hidden;overflow-x: hidden;" >
+
+   <div id="div_branca" style="background-color: white;border-radius: 20%;height: 450px;width: 30%;margin-left: 35%;"><br>
+
+      <H3 style="margin-left: 42%;font-family:  Yu Gothic Light;color:rgb(110, 148, 137);"> Entrar
+
+      </H3>
+      <input
+         style="margin-left: 10%;border: 0;height: 50px;margin-top: 5%;width: 300px;text-decoration: underline;font-size: x-large;"
+         type="text" required id="nome" ; placeholder="Login" ;></input>
+      
+      <br><br><br>
+
+      <input style="margin-left: 10%;border: 0;height: 50px;width: 300px;text-decoration: underline;font-size: x-large;"
+         type="password" required id="senha" ; placeholder="Senha" ; b></input><br>
+      <div id='validar'>
+
+      </div><br>
+      <button
+         style="background-color: white;width: 40%;margin-left: 30%;height: 10%;font-size: medium;font-family: Yu Gothic Light ;color: rgb(0, 0, 0);border: 1;border-color: rgb(110, 148, 137); "
+          onclick="envie()" class="button1"><a>Entrar</a></button><br><br>
+
+      <a><button
+         style="background-color: white;width: 40%;margin-left: 30%;height: 10%;font-size: medium;font-family: Yu Gothic Light ;color: rgb(0, 0, 0);border: 1;border-color: rgb(110, 148, 137);"
+          onclick="window.location.href = 'file:///C:/Users/Francisco/Desktop/SPTECH/P&I/234.html'" class="button2">Cadastre-se</button><br><br>
+         </a>
+
+      <button
+         style="background-color: white;width: 40%;margin-left: 30%;height: 8%;font-size: small;font-family: Yu Gothic Light ;color: rgb(0, 0, 0);border: 0.5;border-color: rgb(110, 148, 137);text-decoration: underline;">Esqueci
+         minha senha</button>
+   </div>
+</body>
+<script>
+   const nome =
+      ["Sergio", "Elissandra", "João", "Mariana", "Victor"]
+
+   function envie() {
+
+      var nome1 = window.document.getElementById('nome').value
+      var senha1 = window.document.getElementById('senha').value
+
+      if (nome1 == nome[0] && senha1 == "2022123") {
+         validar.innerHTML = `<span style="margin-left: 30%;color: black;font-size: large"><b>Bem-Vindo, ${nome[0]}!`
+      }
+      else if (nome1 == nome[1] && senha1 == "111213") {
+         validar.innerHTML = `<span style="margin-left: 30%;color: black;font-size: large"><b>Bem-Vinda, ${nome[1]}!`
+      }
+      else if (nome1 == nome[2] && senha1 == "131415") {
+         validar.innerHTML = `<span style="margin-left: 30%;color: black;font-size: large"><b>Bem-Vindo, ${nome[2]}!`
+      }
+      else if (nome1 == nome[3] && senha1 == "666666") {
+         validar.innerHTML = `<span style="margin-left: 30%;color: black;font-size: large"><b>Bem-Vinda, ${nome[3]}!`
+
+      }
+      else if (nome1 == nome[4] && senha1 == "102433") {
+         validar.innerHTML = `<span style="margin-left: 30%;color: black;font-size: large"><b>Bem-Vindo, ${nome[4]}!`
+      }
+      else {
+         validar.innerHTML = '<span style="margin-left: 25%;color: red;font-size: large"><b>login ou senha incorreta'
+      }
+      if (nome1==""&& senha1=="") {
+         validar.innerHTML = `<span style="margin-left: 15%;color: red;font-size: large"><b> Preencha os campos acima para continuar`
+      }
+   }
+</script>
+
+</html>
